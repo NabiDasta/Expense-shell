@@ -1,6 +1,7 @@
-echo -e "\e[36m Installing Nginx \e[0m"
+echo -e "\e[32m Installing Nginx \e[0m"
 dnf install nginx -y
 
+echo -e "\e[31m copy file \e[0m"
 cp expense.conf /etc/nginx/default.d/expense.conf
 
 rm -rf /usr/share/nginx/html/*
