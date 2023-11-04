@@ -10,7 +10,7 @@ rm -rf /usr/share/nginx/html/*
 echo -e "\e[32m   Download a zip file \e[0m"
 curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip
 
-echo -e "\[32m unzip the file \e[0m"
+echo -e "\e[32m unzip the file \e[0m"
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
