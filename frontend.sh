@@ -1,19 +1,22 @@
-echo -e "\e[32m Installing Nginx \e[0m"
-dnf install nginx -y &>>/tmp/expense.log
+log_file=/tmp/expense.log
+color="\e[32m"
 
-echo -e "\e[32m copy file \e[0m"
-cp expense.conf /etc/nginx/default.d/expense.conf &>>/tmp/expense.log
+echo -e "${color} Installing Nginx \e[0m"
+dnf install nginx -y &>>$log_file
 
-echo -e "\e[32m Removed a file \e[0m"
-rm -rf /usr/share/nginx/html/* &>>/tmp/expense.log
+echo -e "${color} copy file \e[0m"
+cp expense.conf /etc/nginx/default.d/expense.conf &>>$log_file
 
-echo -e "\e[32m Download a zip file \e[0m"
-curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip &>>/tmp/expense.log
+echo -e "${color} Removed a file \e[0m"
+rm -rf /usr/share/nginx/html/* &>>$log_file
 
-echo -e "\e[32m unzip the file \e[0m"
-cd /usr/share/nginx/html &>>/tmp/expense.log
-unzip /tmp/frontend.zip &>>/tmp/expense.log
+echo -e "${color} Download a zip file \e[0m"
+curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip &>>$log_file
 
-echo -e "\e[32m start the nginx \e[0m"
-systemctl enable nginx &>>/tmp/expense.log
-systemctl restart nginx &>>/tmp/expense.log
+echo -e "${color} unzip the file \e[0m"
+cd /usr/share/nginx/html &>>$log_file
+unzip /tmp/frontend.zip &>>$log_file
+
+echo -e "${color} start the nginx \e[0m"
+systemctl enable nginx &>>$log_file
+systemctl restart nginx &>>$log_file
