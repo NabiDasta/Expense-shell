@@ -14,6 +14,6 @@ echo -e "\e[32m unzip the file \e[0m"
 cd /usr/share/nginx/html &>>/tmp/expense.log
 unzip /tmp/frontend.zip &>>/tmp/expense.log
 
-echo -e "\32m start the nginx \e[0m"
+echo -e "\e[32m start the nginx \e[0m"
 systemctl enable nginx &>>/tmp/expense.log
 systemctl restart nginx &>>/tmp/expense.log
