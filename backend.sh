@@ -1,9 +1,10 @@
 log_file="/tmp/expense.log"
 color="\e[33m"
 
-if [ -z "$1" ] then
+if [ -z "$1" ]; then
   exit
 fi
+
 MYSQL_PASSWORD=$1
 
 echo -e "${color} enabling nodejs \e[0m"
