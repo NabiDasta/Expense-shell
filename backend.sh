@@ -14,7 +14,7 @@ function_check() {
  else
    echo -e "\e[31m FAILURE \e[0m"
  fi
-
+ }
 echo -e "${color} enabling nodejs \e[0m"
 dnf module disable nodejs -y &>>$log_file
 dnf module enable nodejs:18 -y &>>$log_file
