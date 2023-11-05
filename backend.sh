@@ -1,6 +1,8 @@
 log_file="/tmp/expense.log"
 color="\e[33m"
 
+MYSQL_PASSWORD=$1
+
 echo -e "${color} enabling nodejs \e[0m"
 dnf module disable nodejs -y &>>$log_file
 dnf module enable nodejs:18 -y &>>$log_file
@@ -89,7 +91,7 @@ else
 fi
 
 echo -e "${color} setup the passwords \e[0m"
-mysql -h mysql-dev.nadevops.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$log_file
+mysql -h mysql-dev.nadevops.online -uroot -p${MYSQL_PASSWORD} < /app/schema/backend.sql &>>$log_file
 if [ $? -eq 0 ]; then
   echo -e "\e[32m SUCCESS \e[0m"
 else
