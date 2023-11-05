@@ -4,7 +4,11 @@ color="\e[33m"
 echo -e "${color} enabling nodejs \e[0m"
 dnf module disable nodejs -y &>>$log_file
 dnf module enable nodejs:18 -y &>>$log_file
-echo $?
+if [ $? -eq 0 ]; then
+  echo SUCCESS
+else
+  echo FAILURE
+fi
 
 echo -e "\e[31m install nodejs \e[0m"
 dnf install nodejs -y &>>$log_file
