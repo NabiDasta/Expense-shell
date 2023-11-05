@@ -45,6 +45,7 @@ if [ $? -eq 0 ]; then
 else
   echo -e "\e[31m FAILURE \e[0m"
 fi
+fi
 
 echo -e "${color} Deleted app directory \e[0m"
 rm -rf /app/* &>>$log_file
