@@ -1,24 +1,10 @@
-log_file="/tmp/expense.log"
-color="\e[33m"
+source comman.sh
 
-if [ -z "$1" ]; then
-  echo password input missing
-  exit
-fi
 
-MYSQL_PASSWORD=$1
-
-function_check() {
- if [ $? -eq 0 ]; then
-   echo -e "\e[32m SUCCESS \e[0m"
- else
-   echo -e "\e[31m FAILURE \e[0m"
- fi
- }
 echo -e "${color} enabling nodejs \e[0m"
 dnf module disable nodejs -y &>>$log_file
 dnf module enable nodejs:18 -y &>>$log_file
-
+function_check
 
 echo -e "${color} install nodejs \e[0m"
 dnf install nodejs -y &>>$log_file
